@@ -86,8 +86,7 @@ export default function ScrollHero() {
   useEffect(() => {
     const onScroll = () => {
       const section = sectionRef.current;
-      const video = videoRef.current;
-      if (!section || !video) return;
+      if (!section) return;
 
       const rect = section.getBoundingClientRect();
       const total = section.offsetHeight - window.innerHeight;
@@ -109,6 +108,30 @@ export default function ScrollHero() {
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
+  // Restart videos when tab/window becomes visible again
+  useEffect(() => {
+    const onVisible = () => {
+      if (document.hidden) return;
+      const section = sectionRef.current;
+      if (!section) return;
+      section.querySelectorAll("video").forEach((v) => {
+        if (v.hasAttribute("loop")) {
+          // Mobile autoplay loop: resume playback
+          v.play().catch(() => {});
+        } else {
+          // Desktop scroll-driven: force fresh state
+          v.load();
+        }
+      });
+    };
+    document.addEventListener("visibilitychange", onVisible);
+    window.addEventListener("pageshow", onVisible);
+    return () => {
+      document.removeEventListener("visibilitychange", onVisible);
+      window.removeEventListener("pageshow", onVisible);
     };
   }, []);
 
