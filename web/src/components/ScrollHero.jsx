@@ -36,6 +36,7 @@ const SCENES = [
 export default function ScrollHero() {
   const sectionRef = useRef(null);
   const videoRef = useRef(null);
+  const videoMobileRef = useRef(null);
   const [sceneIdx, setSceneIdx] = useState(0);
   const [progress, setProgress] = useState(0);
   const rafRef = useRef(0);
@@ -44,41 +45,60 @@ export default function ScrollHero() {
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video) return;
+    const videoMobile = videoMobileRef.current;
+    if (!video && !videoMobile) return;
 
-    video.pause();
     targetTimeRef.current = 0;
     progressRef.current = 0;
 
-    const onReady = () => {
-      video.pause();
-      video.currentTime = 0;
+    const initVideo = (v) => {
+      if (!v) return;
+      v.pause();
+      const onReady = () => {
+        v.pause();
+        v.currentTime = 0;
+      };
+      v.addEventListener("loadedmetadata", onReady, { once: true });
+      v.load();
     };
-    video.addEventListener("loadedmetadata", onReady, { once: true });
+    initVideo(video);
+    initVideo(videoMobile);
 
-    // Force fresh load — guarantees loadedmetadata fires even after back-navigation
-    video.load();
+    // iOS Safari requires a user gesture to enable currentTime scrubbing.
+    // play()→pause() on first touch primes the mobile video.
+    const unlockMobile = () => {
+      const v = videoMobileRef.current;
+      if (!v) return;
+      const p = v.play();
+      if (p && p.then) p.then(() => v.pause()).catch(() => {});
+      else v.pause();
+    };
+    window.addEventListener("touchstart", unlockMobile, { once: true, passive: true });
+    window.addEventListener("click", unlockMobile, { once: true });
 
     let active = true;
+    const seek = (v) => {
+      if (!v || !v.duration) return;
+      const target = Math.min(v.duration - 0.05, progressRef.current * v.duration);
+      const diff = target - v.currentTime;
+      if (Math.abs(diff) < 0.04) {
+        v.currentTime = target;
+      } else {
+        v.currentTime += diff * 0.35;
+      }
+    };
     const tick = () => {
       if (!active) return;
-      const v = videoRef.current;
-      if (v && v.duration) {
-        targetTimeRef.current = Math.min(v.duration - 0.05, progressRef.current * v.duration);
-        const diff = targetTimeRef.current - v.currentTime;
-        if (Math.abs(diff) < 0.04) {
-          v.currentTime = targetTimeRef.current;
-        } else {
-          v.currentTime += diff * 0.35;
-        }
-      }
+      seek(videoRef.current);
+      seek(videoMobileRef.current);
       rafRef.current = requestAnimationFrame(tick);
     };
     rafRef.current = requestAnimationFrame(tick);
 
     return () => {
       active = false;
-      video.removeEventListener("loadedmetadata", onReady);
+      window.removeEventListener("touchstart", unlockMobile);
+      window.removeEventListener("click", unlockMobile);
       cancelAnimationFrame(rafRef.current);
     };
   }, []);
@@ -117,15 +137,7 @@ export default function ScrollHero() {
       if (document.hidden) return;
       const section = sectionRef.current;
       if (!section) return;
-      section.querySelectorAll("video").forEach((v) => {
-        if (v.hasAttribute("loop")) {
-          // Mobile autoplay loop: resume playback
-          v.play().catch(() => {});
-        } else {
-          // Desktop scroll-driven: force fresh state
-          v.load();
-        }
-      });
+      section.querySelectorAll("video").forEach((v) => v.load());
     };
     document.addEventListener("visibilitychange", onVisible);
     window.addEventListener("pageshow", onVisible);
@@ -153,15 +165,16 @@ export default function ScrollHero() {
           <div className="absolute inset-y-0 left-0 hidden lg:block w-1/3 bg-gradient-to-r from-bone via-bone/60 to-transparent" />
         </div>
 
-        {/* Mobile: video at top of flex column */}
+        {/* Mobile: scroll-driven video at top of flex column */}
         <div className="lg:hidden flex-shrink-0 pt-20 pb-4 flex justify-center relative z-10">
           <video
+            ref={videoMobileRef}
             src="/media/camera.mp4"
+            poster="/media/camera-exploded.png"
             muted
             playsInline
-            autoPlay
-            loop
-            className="h-[26vh] max-h-[210px] w-full max-w-[280px] object-contain mix-blend-multiply"
+            preload="auto"
+            className="h-[26vh] max-h-[210px] w-full max-w-[280px] object-contain mix-blend-darken"
             aria-hidden="true"
           />
         </div>
