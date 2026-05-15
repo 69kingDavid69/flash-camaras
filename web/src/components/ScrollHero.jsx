@@ -121,34 +121,40 @@ export default function ScrollHero() {
       style={{ height: "380vh" }}
       aria-label="Presentación Flash Cámaras"
     >
-      <div className="sticky top-0 h-dvh w-full overflow-hidden bg-bone">
-        <div className="absolute inset-0">
+      <div className="sticky top-0 h-dvh w-full overflow-hidden bg-bone flex flex-col lg:block">
+        {/* Background gradients */}
+        <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_rgba(200,16,46,0.12),_transparent_60%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_55%,_rgba(255,255,255,0.55),_transparent_60%)] lg:bg-[radial-gradient(ellipse_at_72%_50%,_rgba(255,255,255,0.65),_transparent_55%)]" />
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-bone" />
+          <div className="absolute inset-y-0 left-0 hidden lg:block w-1/3 bg-gradient-to-r from-bone via-bone/60 to-transparent" />
+        </div>
 
-          <div className="absolute inset-0 flex items-start justify-center pt-20 lg:items-center lg:justify-end lg:pt-0 lg:pr-8 xl:pr-16">
-            {/* Mobile: static poster image (iOS can't scrub video) */}
-            <img
-              src="/media/camera-exploded.png"
-              alt=""
-              aria-hidden="true"
-              className="lg:hidden h-[42vh] w-full max-w-[340px] object-contain mix-blend-multiply"
-            />
-            {/* Desktop: scroll-driven video */}
-            <video
-              ref={videoRef}
-              src="/media/camera.mp4"
-              poster="/media/camera-exploded.png"
-              muted
-              playsInline
-              preload="auto"
-              className="hidden lg:block lg:h-[80vh] lg:max-w-[820px] xl:max-w-[960px] w-full object-contain mix-blend-multiply"
-              aria-hidden="true"
-            />
-          </div>
+        {/* Mobile: video at top of flex column */}
+        <div className="lg:hidden flex-shrink-0 pt-20 pb-4 flex justify-center relative z-10">
+          <video
+            src="/media/camera.mp4"
+            muted
+            playsInline
+            autoPlay
+            loop
+            className="h-[26vh] max-h-[210px] w-full max-w-[280px] object-contain mix-blend-multiply"
+            aria-hidden="true"
+          />
+        </div>
 
-          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-bone pointer-events-none" />
-          <div className="absolute inset-y-0 left-0 hidden lg:block w-1/3 bg-gradient-to-r from-bone via-bone/60 to-transparent pointer-events-none" />
+        {/* Desktop: absolute video on right */}
+        <div className="hidden lg:flex absolute inset-0 items-center justify-end pr-8 xl:pr-16">
+          <video
+            ref={videoRef}
+            src="/media/camera.mp4"
+            poster="/media/camera-exploded.png"
+            muted
+            playsInline
+            preload="auto"
+            className="h-[80vh] max-w-[820px] xl:max-w-[960px] w-full object-contain mix-blend-multiply"
+            aria-hidden="true"
+          />
         </div>
 
         <div className="absolute inset-x-0 top-0 z-10 h-1 bg-ink/5">
@@ -158,7 +164,7 @@ export default function ScrollHero() {
           />
         </div>
 
-        <div className="relative z-10 h-full container-x flex flex-col justify-end pb-24 pt-32 lg:justify-center">
+        <div className="relative z-10 flex-1 min-h-0 container-x flex flex-col justify-start pb-12 lg:absolute lg:inset-0 lg:h-full lg:flex-initial lg:pt-32 lg:pb-24 lg:justify-center">
           <div className="max-w-2xl">
             <div
               key={`eyebrow-${sceneIdx}`}
