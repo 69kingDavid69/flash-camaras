@@ -165,18 +165,22 @@ export default function ScrollHero() {
           <div className="absolute inset-y-0 left-0 hidden lg:block w-1/3 bg-gradient-to-r from-bone via-bone/60 to-transparent" />
         </div>
 
-        {/* Mobile: scroll-driven video at top of flex column */}
+        {/* Mobile: video inside a white container so the video's white bg
+            matches its parent perfectly; the parent's mask fades the white
+            to transparent at the edges, blending into the bone page bg. */}
         <div className="lg:hidden flex-shrink-0 pt-20 pb-4 flex justify-center relative z-10">
-          <video
-            ref={videoMobileRef}
-            src="/media/camera.mp4"
-            poster="/media/camera-exploded.png"
-            muted
-            playsInline
-            preload="auto"
-            className="hero-video-mobile-mask h-[26vh] max-h-[210px] w-full max-w-[280px] object-contain mix-blend-multiply"
-            aria-hidden="true"
-          />
+          <div className="hero-video-mobile-mask bg-white">
+            <video
+              ref={videoMobileRef}
+              src="/media/camera.mp4"
+              poster="/media/camera-exploded.png"
+              muted
+              playsInline
+              preload="auto"
+              className="block h-[26vh] max-h-[210px] w-full max-w-[280px] object-contain"
+              aria-hidden="true"
+            />
+          </div>
         </div>
 
         {/* Desktop: absolute video on right */}
