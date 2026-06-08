@@ -1,5 +1,6 @@
 export const CATEGORIES = [
   { id: "all",       label: "Todos" },
+  { id: "usados",    label: "Usados / Segunda mano" },
   { id: "baterias",  label: "Baterías" },
   { id: "filtros",   label: "Filtros" },
   { id: "tarjetas",  label: "Tarjetas" },
@@ -8,6 +9,63 @@ export const CATEGORIES = [
 ];
 
 export const PRODUCTS = [
+  // --- Equipos de segunda mano (prioridad) ---
+  {
+    id: 101,
+    name: "Cámara Sony A6400 + lente 16-50mm (usada)",
+    category: "usados",
+    price: 2900000,
+    brand: "Sony",
+    tag: "Segunda mano",
+    used: true,
+    condition: "Usada · excelente estado",
+    desc: "APS-C 24MP, enfoque rápido y video 4K. Revisada por nuestro taller.",
+  },
+  {
+    id: 102,
+    name: "Cámara Canon EOS 90D (cuerpo, usada)",
+    category: "usados",
+    price: 2300000,
+    brand: "Canon",
+    tag: "Segunda mano",
+    used: true,
+    condition: "Usada · buen estado",
+    desc: "DSLR 32.5MP, disparo 10 fps. Bajo conteo de obturador.",
+  },
+  {
+    id: 103,
+    name: "Cámara Fujifilm X-T20 (cuerpo, usada)",
+    category: "usados",
+    price: 1700000,
+    brand: "Fujifilm",
+    tag: "Segunda mano",
+    used: true,
+    condition: "Usada · muy buen estado",
+    desc: "Mirrorless 24MP, look clásico Fuji. Ideal para viaje y calle.",
+  },
+  {
+    id: 104,
+    name: "Cámara Nikon D7200 (cuerpo, usada)",
+    category: "usados",
+    price: 1800000,
+    brand: "Nikon",
+    tag: "Segunda mano",
+    used: true,
+    condition: "Usada · buen estado",
+    desc: "DSLR 24MP APS-C, doble ranura SD. Robusta y confiable.",
+  },
+  {
+    id: 105,
+    name: "Cámara Canon EOS Rebel T6 + 18-55mm (usada)",
+    category: "usados",
+    price: 950000,
+    brand: "Canon",
+    tag: "Segunda mano",
+    used: true,
+    condition: "Usada · ideal para empezar",
+    desc: "Kit completo para iniciarte. Revisada y lista para disparar.",
+  },
+  // --- Accesorios nuevos ---
   {
     id: 1,
     name: "Batería Sony NP-FZ100 Original",
@@ -32,7 +90,7 @@ export const PRODUCTS = [
     category: "filtros",
     price: 240000,
     brand: "Hoya",
-    tag: "Premium",
+    tag: "Alta gama",
     desc: "Vidrio templado, recubrimiento multicapa.",
   },
   {

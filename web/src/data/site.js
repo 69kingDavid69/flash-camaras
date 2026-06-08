@@ -1,6 +1,8 @@
 export const SITE = {
-  name: "Flash Cámaras",
-  tagline: "Servicio técnico especializado en cámaras fotográficas",
+  name: "FlasCámaras",
+  tagline: "Servicio técnico en cámaras fotográficas",
+  years: 41,
+  shipping: "Envíos a todo el país",
   whatsapp: "573042151828",
   phone: "+57 304 215 1828",
   email: "flascamaras@hotmail.com",
@@ -12,8 +14,8 @@ export const SITE = {
   mapsEmbed:
     "https://maps.google.com/maps?q=6.2518969,-75.5657047&hl=es&z=17&output=embed",
   social: {
-    instagram: "https://instagram.com/flashcamaras",
-    facebook: "https://facebook.com/flashcamaras",
+    instagram: "https://instagram.com/flascamaras",
+    facebook: "https://facebook.com/flascamaras",
   },
 };
 

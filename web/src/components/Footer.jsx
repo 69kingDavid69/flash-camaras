@@ -14,11 +14,11 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <Logo size={44} variant="light" />
             <span className="font-display text-2xl">
-              Flash<span className="text-flash-500"> Cámaras</span>
+              <span className="font-bold text-flash-400">Flas</span><span className="text-white">Cámaras</span>
             </span>
           </div>
           <p className="mt-6 text-white/70 leading-relaxed">
-            Servicio técnico especializado en cámaras fotográficas. Mantenimiento, reparación y accesorios premium con garantía real.
+            Servicio técnico en cámaras fotográficas. Mantenimiento, reparación, accesorios y equipos de segunda mano con garantía real. 41 años de experiencia y envíos a todo el país.
           </p>
           <div className="mt-6 flex gap-3">
             <a

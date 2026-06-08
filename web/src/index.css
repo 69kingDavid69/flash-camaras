@@ -33,7 +33,7 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-flash-600 px-7 py-3.5 text-sm font-medium tracking-wide text-white shadow-glow transition-all duration-300 hover:bg-flash-700 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-flash-600;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-flash-700 px-7 py-3.5 text-sm font-medium tracking-wide text-white shadow-glow transition-all duration-300 hover:bg-flash-800 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-flash-700;
   }
 
   .btn-ghost {

@@ -31,7 +31,7 @@ export default function CtaBanner() {
               href={wa("Hola, quiero diagnosticar mi cámara.")}
               target="_blank"
               rel="noreferrer"
-              className="group flex items-center justify-between rounded-2xl bg-flash-600 px-6 py-5 text-white transition hover:bg-flash-500"
+              className="group flex items-center justify-between rounded-2xl bg-flash-700 px-6 py-5 text-white transition hover:bg-flash-600"
             >
               <span className="flex items-center gap-3">
                 <MessageCircle className="h-5 w-5" />

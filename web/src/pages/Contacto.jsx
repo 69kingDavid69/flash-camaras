@@ -17,7 +17,7 @@ export default function Contacto() {
 
   return (
     <div className="relative bg-bone overflow-x-hidden">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(200,16,46,0.10),_transparent_55%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(182,134,42,0.12),_transparent_55%)]" />
 
       <section className="relative pt-40 pb-20">
         <div className="container-x">
@@ -111,7 +111,7 @@ export default function Contacto() {
                 className="group block overflow-hidden rounded-[2rem] border border-ink/5 shadow-card aspect-[4/3] relative"
               >
                 <iframe
-                  title="Ubicación Flash Cámaras en Google Maps"
+                  title="Ubicación FlasCámaras en Google Maps"
                   src={SITE.mapsEmbed}
                   className="h-full w-full pointer-events-none"
                   loading="lazy"

@@ -5,17 +5,17 @@ export default {
     extend: {
       colors: {
         flash: {
-          50:  "#FFF1F2",
-          100: "#FFE0E3",
-          200: "#FCC2C8",
-          300: "#F79CA5",
-          400: "#EE6873",
-          500: "#DE2A3C",
-          600: "#C8102E",
-          700: "#A10C24",
-          800: "#7A0A1C",
-          900: "#560614",
-          950: "#2E0009",
+          50:  "#FBF6EA",
+          100: "#F5E9C8",
+          200: "#EAD296",
+          300: "#DDB95F",
+          400: "#CFA23C",
+          500: "#B6862A",
+          600: "#996E1E",
+          700: "#7C5818",
+          800: "#5F4314",
+          900: "#46300F",
+          950: "#271B08",
         },
         ink: {
           DEFAULT: "#0A0A0A",
@@ -32,7 +32,7 @@ export default {
         sans: ['"Inter"', "system-ui", "sans-serif"],
       },
       boxShadow: {
-        glow: "0 10px 60px -10px rgba(200, 16, 46, 0.35)",
+        glow: "0 10px 60px -10px rgba(153, 110, 30, 0.40)",
         card: "0 20px 50px -20px rgba(10,10,10,0.18)",
       },
       animation: {

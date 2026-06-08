@@ -24,9 +24,9 @@ export default function Home() {
         <div className="flex flex-col gap-12 lg:flex-row lg:items-end lg:justify-between">
           <SectionTitle
             eyebrow="Qué hacemos"
-            title="Tres formas de cuidar"
+            title="Todo para cuidar"
             accent="tu equipo."
-            sub="Mantenimiento, reparación y accesorios. Todo bajo el mismo techo, con técnicos certificados."
+            sub="Mantenimiento, reparación, accesorios y asesoría. Todo bajo el mismo techo, con técnicos expertos."
           />
           <Link to="/servicios" className="btn-ghost self-start lg:self-end">
             Ver todos los servicios
@@ -45,9 +45,9 @@ export default function Home() {
           <div className="flex flex-col gap-12 lg:flex-row lg:items-end lg:justify-between">
             <SectionTitle
               eyebrow="Tienda"
-              title="Accesorios"
-              accent="seleccionados."
-              sub="Curaduría de marcas profesionales: Sony, Canon, Hoya, Peak Design, SanDisk, Manfrotto y más."
+              title="Equipos de segunda mano"
+              accent="revisados."
+              sub="Cámaras usadas revisadas por nuestro taller y accesorios profesionales. Envíos a todo el país."
             />
             <Link to="/tienda" className="btn-ghost self-start lg:self-end">
               Explorar tienda
@@ -81,7 +81,7 @@ export default function Home() {
                   <div className="mt-5 flex items-baseline justify-between border-t border-ink/5 pt-4">
                     <span className="text-lg font-medium text-ink">{fmt(p.price)}</span>
                     <a
-                      href={wa(`Hola, me interesa: ${p.name}`)}
+                      href={wa(`Hola FlasCámaras 👋, me interesa: *${p.name}*. ¿Disponibilidad y envío a todo el país?`)}
                       target="_blank"
                       rel="noreferrer"
                       className="text-xs font-medium text-flash-700 hover:text-flash-800"
@@ -100,7 +100,7 @@ export default function Home() {
       <section className="container-x py-28 sm:py-36">
         <SectionTitle
           align="center"
-          eyebrow="Por qué Flash Cámaras"
+          eyebrow="Por qué FlasCámaras"
           title="Precisión, confianza,"
           accent="garantía."
           sub="No improvisamos. Cada paso del proceso está documentado, medido y respaldado."

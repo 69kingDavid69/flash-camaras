@@ -1,4 +1,4 @@
-import { Wrench, Camera, Sparkles, ShieldCheck, Cpu, Aperture } from "lucide-react";
+import { Wrench, Camera, Sparkles, ShieldCheck, Cpu, Aperture, Lightbulb } from "lucide-react";
 
 export const SERVICES = [
   {
@@ -34,10 +34,10 @@ export const SERVICES = [
   {
     id: "accesorios",
     icon: Camera,
-    title: "Accesorios premium",
+    title: "Accesorios",
     short: "Filtros, baterías, correas, tarjetas y más.",
     description:
-      "Curaduría de accesorios originales y compatibles certificados para Sony, Canon, Nikon, Fuji y Panasonic.",
+      "Curaduría de accesorios originales y compatibles para Sony, Canon, Nikon, Fuji y Panasonic.",
     bullets: [
       "Baterías originales y OEM",
       "Filtros UV / ND / CPL",
@@ -45,6 +45,21 @@ export const SERVICES = [
       "Correas, mochilas, soportes",
     ],
     price: "Catálogo en tienda",
+  },
+  {
+    id: "asesoria",
+    icon: Lightbulb,
+    title: "Asesoría especializada",
+    short: "Te orientamos antes de comprar o reparar.",
+    description:
+      "41 años nos dan criterio: te ayudamos a elegir el equipo correcto, decidir si vale la pena reparar y sacarle el máximo a tu cámara, lente o accesorio.",
+    bullets: [
+      "Qué cámara o lente comprar",
+      "Reparar o reemplazar: te decimos la verdad",
+      "Compra y venta de equipos de segunda mano",
+      "Acompañamiento personalizado",
+    ],
+    price: "Sin costo · por WhatsApp",
   },
 ];
 
@@ -56,8 +71,8 @@ export const PILLARS = [
   },
   {
     icon: Cpu,
-    title: "Técnicos certificados",
-    text: "+12 años de experiencia con Sony, Canon, Nikon, Fuji, Panasonic y Leica.",
+    title: "41 años de experiencia",
+    text: "Cuatro décadas en el mercado. Nuestros técnicos dominan Sony, Canon, Nikon, Fuji, Panasonic y Leica.",
   },
   {
     icon: Aperture,

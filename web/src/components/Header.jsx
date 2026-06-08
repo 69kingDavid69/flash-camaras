@@ -44,11 +44,11 @@ export default function Header() {
             <span className="absolute inset-0 rounded-[14px] ring-1 ring-flash-600/30 pointer-events-none" />
           </span>
           <span className="flex flex-col leading-none">
-            <span className="font-display text-xl font-semibold tracking-tight">
-              Flash<span className="text-flash-600"> Cámaras</span>
+            <span className="font-display text-xl tracking-tight">
+              <span className="font-bold text-flash-600">Flas</span><span className="text-ink">Cámaras</span>
             </span>
             <span className="text-[10px] uppercase tracking-[0.3em] text-ink-mute">
-              Servicio técnico premium
+              Servicio técnico · 41 años
             </span>
           </span>
         </Link>

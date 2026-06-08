@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const SCENES = [
   {
-    eyebrow: "Servicio técnico premium",
+    eyebrow: "41 años de experiencia",
     title: "Conocemos",
     accent: "cada pieza",
     after: "de tu cámara.",
@@ -15,7 +15,7 @@ const SCENES = [
     title: "La desarmamos",
     accent: "con cuidado",
     after: "quirúrgico.",
-    sub: "Cuarto limpio, herramientas calibradas y técnicos certificados en Sony, Canon, Nikon y Fuji.",
+    sub: "Cuarto limpio, herramientas calibradas y técnicos expertos en Sony, Canon, Nikon y Fuji.",
   },
   {
     eyebrow: "Cada componente importa",
@@ -29,7 +29,7 @@ const SCENES = [
     title: "Tu equipo,",
     accent: "como nuevo.",
     after: "",
-    sub: "Garantía real de 90 días sobre cada reparación. Entrega en tiempos honestos.",
+    sub: "Garantía real de 90 días sobre cada reparación. Entrega en tiempos honestos y envíos a todo el país.",
   },
 ];
 
@@ -154,12 +154,12 @@ export default function ScrollHero() {
       ref={sectionRef}
       className="relative"
       style={{ height: "380vh" }}
-      aria-label="Presentación Flash Cámaras"
+      aria-label="Presentación FlasCámaras"
     >
       <div className="sticky top-0 h-dvh w-full overflow-hidden bg-bone flex flex-col lg:block">
         {/* Background gradients */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_rgba(200,16,46,0.08),_transparent_60%)] lg:bg-[radial-gradient(ellipse_at_top_left,_rgba(200,16,46,0.12),_transparent_60%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_rgba(182,134,42,0.10),_transparent_60%)] lg:bg-[radial-gradient(ellipse_at_top_left,_rgba(182,134,42,0.14),_transparent_60%)]" />
           <div className="hidden lg:block absolute inset-0 bg-[radial-gradient(ellipse_at_72%_50%,_rgba(255,255,255,0.65),_transparent_55%)]" />
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-bone" />
           <div className="absolute inset-y-0 left-0 hidden lg:block w-1/3 bg-gradient-to-r from-bone via-bone/60 to-transparent" />

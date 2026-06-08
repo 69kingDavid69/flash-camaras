@@ -24,13 +24,13 @@ export default function Servicios() {
     <>
       {/* Hero secundario */}
       <section className="relative overflow-hidden bg-bone pt-40 pb-20 sm:pb-28">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(200,16,46,0.10),_transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(182,134,42,0.12),_transparent_50%)]" />
         <div className="container-x relative">
           <SectionTitle
             eyebrow="Servicios"
             title="Diagnosticamos, reparamos,"
             accent="cuidamos."
-            sub="Trabajamos con cuartos limpios y protocolos certificados. Lo que hacemos en una semana, otros tardan un mes."
+            sub="Trabajamos con cuartos limpios y protocolos propios. Lo que hacemos en una semana, otros tardan un mes."
           />
         </div>
       </section>

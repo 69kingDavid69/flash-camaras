@@ -4,7 +4,7 @@ import { wa } from "../data/site";
 export default function WhatsAppFAB() {
   return (
     <a
-      href={wa("Hola Flash Cámaras 👋, quisiera hacer una consulta.")}
+      href={wa("Hola FlasCámaras 👋, quisiera hacer una consulta.")}
       target="_blank"
       rel="noreferrer"
       aria-label="Escribir por WhatsApp"

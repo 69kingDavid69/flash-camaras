@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Search, MessageCircle, Filter } from "lucide-react";
+import { Search, MessageCircle, Filter, Truck, Camera } from "lucide-react";
 import SectionTitle from "../components/SectionTitle";
 import Reveal from "../components/Reveal";
 import CtaBanner from "../components/CtaBanner";
@@ -28,14 +28,24 @@ export default function Tienda() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-bone pt-40 pb-16">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(200,16,46,0.10),_transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(182,134,42,0.12),_transparent_50%)]" />
         <div className="container-x relative">
           <SectionTitle
             eyebrow="Tienda"
-            title="Accesorios premium"
-            accent="para fotógrafos."
-            sub="Pide por WhatsApp y recibe en tu casa o pasa por el taller. Despachamos a todo Colombia."
+            title="Cámaras de segunda mano"
+            accent="y accesorios."
+            sub="Equipos usados revisados por nuestro taller, accesorios y repuestos. Compra por WhatsApp y recíbelo en tu casa."
           />
+          <div className="mt-7 flex flex-wrap gap-3">
+            <span className="inline-flex items-center gap-2 rounded-full bg-flash-50 border border-flash-200 px-4 py-2 text-sm font-medium text-flash-700">
+              <Camera className="h-4 w-4" />
+              Prioridad: equipos usados
+            </span>
+            <span className="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm font-medium text-white">
+              <Truck className="h-4 w-4" />
+              Envíos a todo el país
+            </span>
+          </div>
         </div>
       </section>
 
@@ -109,6 +119,12 @@ export default function Tienda() {
                     <p className="mt-2 text-xs text-ink-mute leading-relaxed line-clamp-2">
                       {p.desc}
                     </p>
+                    {p.used && (
+                      <span className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-flash-50 px-3 py-1 text-[11px] font-medium text-flash-700">
+                        <Camera className="h-3 w-3" />
+                        {p.condition}
+                      </span>
+                    )}
                   </div>
 
                   <div className="mt-5 border-t border-ink/5 pt-4">
@@ -117,14 +133,14 @@ export default function Tienda() {
                     </div>
                     <a
                       href={wa(
-                        `Hola Flash Cámaras, me interesa: *${p.name}* (${fmt(p.price)}). ¿Sigue disponible?`
+                        `Hola FlasCámaras 👋, quiero *comprar* este producto:\n\n• ${p.name}\n• Precio: ${fmt(p.price)}${p.used ? `\n• Estado: ${p.condition}` : ""}\n\n¿Está disponible? ¿Me confirman el envío a todo el país?`
                       )}
                       target="_blank"
                       rel="noreferrer"
-                      className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-flash-600 px-4 py-3 text-sm font-medium text-white transition hover:bg-flash-700"
+                      className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-flash-700 px-4 py-3 text-sm font-medium text-white transition hover:bg-flash-800"
                     >
                       <MessageCircle className="h-4 w-4" />
-                      Pedir por WhatsApp
+                      Comprar por WhatsApp
                     </a>
                   </div>
                 </article>
