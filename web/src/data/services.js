@@ -19,7 +19,7 @@ export const SERVICES = [
   {
     id: "reparacion",
     icon: Wrench,
-    title: "Reparación especializada",
+    title: "Reparación",
     short: "Fallas mecánicas, electrónicas y de obturador.",
     description:
       "Diagnóstico, reparación de obturador, espejo, pantalla LCD, tarjetas lógicas, lentes con focus motor y más.",
