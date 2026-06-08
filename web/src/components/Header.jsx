@@ -77,17 +77,6 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-3">
-          <a
-            href={wa("Hola, quiero más información sobre sus servicios.")}
-            target="_blank"
-            rel="noreferrer"
-            className="btn-primary !py-2.5 !px-5 !text-xs"
-          >
-            Agendar visita
-          </a>
-        </div>
-
         <button
           onClick={() => setOpen((v) => !v)}
           className="lg:hidden rounded-full border border-ink/10 bg-white/80 p-2.5 backdrop-blur"
@@ -127,7 +116,7 @@ export default function Header() {
               rel="noreferrer"
               className="btn-primary mt-3 w-full"
             >
-              Agendar visita por WhatsApp
+              Escríbenos por WhatsApp
             </a>
           </nav>
         </div>

@@ -36,16 +36,12 @@ export default function Tienda() {
             accent="y accesorios."
             sub="Equipos usados revisados por nuestro taller, accesorios y repuestos. Compra por WhatsApp y recíbelo en tu casa."
           />
-          <div className="mt-7 flex flex-wrap gap-3">
-            <span className="inline-flex items-center gap-2 rounded-full bg-flash-50 border border-flash-200 px-4 py-2 text-sm font-medium text-flash-700">
-              <Camera className="h-4 w-4" />
-              Prioridad: equipos usados
+          <p className="mt-7 inline-flex items-center gap-3 font-display text-xl sm:text-2xl text-ink">
+            <Truck className="h-6 w-6 shrink-0 text-flash-600" />
+            <span>
+              Hacemos <span className="italic text-flash-700">envíos a todo el país</span>
             </span>
-            <span className="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm font-medium text-white">
-              <Truck className="h-4 w-4" />
-              Envíos a todo el país
-            </span>
-          </div>
+          </p>
         </div>
       </section>
 
