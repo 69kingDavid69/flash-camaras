@@ -14,7 +14,7 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <Logo size={44} variant="light" />
             <span className="font-display text-2xl">
-              <span className="font-bold text-flash-400">Flas</span><span className="text-white">Cámaras</span>
+              <span className="font-bold text-flash-400">Flas</span><span className="text-flash-300">Cámaras</span>
             </span>
           </div>
           <p className="mt-6 text-white/70 leading-relaxed">

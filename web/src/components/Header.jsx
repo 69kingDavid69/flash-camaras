@@ -45,7 +45,7 @@ export default function Header() {
           </span>
           <span className="flex flex-col leading-none">
             <span className="font-display text-xl tracking-tight">
-              <span className="font-bold text-flash-600">Flas</span><span className="text-ink">Cámaras</span>
+              <span className="font-bold text-flash-600">Flas</span><span className="text-flash-500">Cámaras</span>
             </span>
             <span className="text-[10px] uppercase tracking-[0.3em] text-ink-mute">
               Servicio técnico · 41 años
