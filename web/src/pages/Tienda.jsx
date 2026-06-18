@@ -39,7 +39,7 @@ export default function Tienda() {
           <p className="mt-7 inline-flex items-center gap-3 font-display text-xl sm:text-2xl text-ink">
             <Truck className="h-6 w-6 shrink-0 text-flash-600" />
             <span>
-              Hacemos <span className="italic text-flash-700">envíos a todo el país</span>
+              Hacemos <span className="gold-text italic">envíos a todo el país</span>
             </span>
           </p>
         </div>
@@ -133,7 +133,7 @@ export default function Tienda() {
                       )}
                       target="_blank"
                       rel="noreferrer"
-                      className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-flash-700 px-4 py-3 text-sm font-medium text-white transition hover:bg-flash-800"
+                      className="gold-surface mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-semibold transition"
                     >
                       <MessageCircle className="h-4 w-4" />
                       Comprar por WhatsApp

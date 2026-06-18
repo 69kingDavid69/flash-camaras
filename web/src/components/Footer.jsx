@@ -13,8 +13,8 @@ export default function Footer() {
         <div className="lg:col-span-2 max-w-md">
           <div className="flex items-center gap-3">
             <Logo size={44} variant="light" />
-            <span className="font-display text-2xl">
-              <span className="font-bold text-flash-400">Flas</span><span className="text-flash-300">Cámaras</span>
+            <span className="gold-text font-display text-2xl font-bold">
+              FlasCámaras
             </span>
           </div>
           <p className="mt-6 text-white/70 leading-relaxed">
@@ -59,14 +59,19 @@ export default function Footer() {
             Contacto
           </h4>
           <ul className="mt-5 space-y-4 text-sm">
-            <li className="flex gap-3 text-white/80">
-              <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-flash-500" />
-              {SITE.address}
-            </li>
-            <li className="flex gap-3 text-white/80">
-              <Phone className="h-4 w-4 mt-0.5 shrink-0 text-flash-500" />
-              {SITE.phone}
-            </li>
+            {SITE.locations.map((location) => (
+              <li key={location.name} className="space-y-2 text-white/80">
+                <div className="font-medium text-white">{location.name}</div>
+                <div className="flex gap-3">
+                  <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-flash-500" />
+                  <span>{location.address}</span>
+                </div>
+                <div className="flex gap-3">
+                  <Phone className="h-4 w-4 mt-0.5 shrink-0 text-flash-500" />
+                  <span>{location.phone}</span>
+                </div>
+              </li>
+            ))}
             <li className="flex gap-3 text-white/80">
               <Mail className="h-4 w-4 mt-0.5 shrink-0 text-flash-500" />
               {SITE.email}

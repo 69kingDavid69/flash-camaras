@@ -7,7 +7,7 @@ export default function SectionTitle({ eyebrow, title, accent, sub, align = "lef
       {eyebrow && <span className="eyebrow">{eyebrow}</span>}
       <h2 className="mt-5 font-display text-4xl sm:text-5xl lg:text-6xl font-medium leading-[1.05] text-ink">
         {title}{" "}
-        {accent && <span className="italic text-flash-700">{accent}</span>}
+        {accent && <span className="gold-text italic">{accent}</span>}
       </h2>
       {sub && (
         <p className="mt-5 text-base sm:text-lg text-ink-mute leading-relaxed max-w-2xl">

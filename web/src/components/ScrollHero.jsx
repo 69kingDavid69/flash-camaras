@@ -218,7 +218,7 @@ export default function ScrollHero() {
               className="mt-6 font-display text-[44px] leading-[1.02] sm:text-6xl lg:text-7xl xl:text-[88px] font-medium text-ink animate-fade-up"
             >
               {scene.title}{" "}
-              <span className="italic text-flash-700">{scene.accent}</span>{" "}
+              <span className="gold-text italic">{scene.accent}</span>{" "}
               {scene.after}
             </h1>
 

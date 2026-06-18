@@ -19,7 +19,7 @@ export default function CtaBanner() {
             </span>
             <h2 className="mt-5 font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.05]">
               ¿Tu cámara no está dando lo mejor?{" "}
-              <span className="italic text-flash-400">Te ayudamos hoy.</span>
+              <span className="gold-text italic">Te ayudamos hoy.</span>
             </h2>
             <p className="mt-5 max-w-xl text-white/70 leading-relaxed">
               Llévala a nuestro taller o agenda tu visita por WhatsApp. Cotizamos en menos de 24 horas y trabajamos con garantía.
@@ -31,7 +31,7 @@ export default function CtaBanner() {
               href={wa("Hola, quiero diagnosticar mi cámara.")}
               target="_blank"
               rel="noreferrer"
-              className="group flex items-center justify-between rounded-2xl bg-flash-700 px-6 py-5 text-white transition hover:bg-flash-600"
+              className="gold-surface group flex items-center justify-between rounded-2xl px-6 py-5 text-ink transition"
             >
               <span className="flex items-center gap-3">
                 <MessageCircle className="h-5 w-5" />

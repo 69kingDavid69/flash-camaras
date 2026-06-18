@@ -104,29 +104,69 @@ export default function Contacto() {
           {/* Info */}
           <Reveal delay={0.15}>
             <div className="flex h-full flex-col gap-6">
-              <a
-                href={SITE.mapsLink}
-                target="_blank"
-                rel="noreferrer"
-                className="group block overflow-hidden rounded-[2rem] border border-ink/5 shadow-card aspect-[4/3] relative"
-              >
-                <iframe
-                  title="Ubicación FlasCámaras en Google Maps"
-                  src={SITE.mapsEmbed}
-                  className="h-full w-full pointer-events-none"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-                <span className="absolute bottom-4 right-4 rounded-full bg-white/95 backdrop-blur px-4 py-2 text-xs font-medium text-ink shadow-card opacity-0 transition-opacity group-hover:opacity-100">
-                  Abrir en Google Maps ↗
-                </span>
-              </a>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                {SITE.locations.map((location) => (
+                  <a
+                    key={location.name}
+                    href={location.mapsLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group block overflow-hidden rounded-[2rem] border border-ink/5 bg-white shadow-card aspect-[4/3] relative"
+                  >
+                    <iframe
+                      title={`Ubicación ${location.name} FlasCámaras en Google Maps`}
+                      src={location.mapsEmbed}
+                      className="h-full w-full pointer-events-none"
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                    <span className="absolute left-4 top-4 rounded-full bg-white/95 backdrop-blur px-4 py-2 text-xs font-medium text-ink shadow-card">
+                      {location.name}
+                    </span>
+                    <span className="absolute bottom-4 right-4 rounded-full bg-white/95 backdrop-blur px-4 py-2 text-xs font-medium text-ink shadow-card opacity-0 transition-opacity group-hover:opacity-100">
+                      Abrir en Google Maps
+                    </span>
+                  </a>
+                ))}
+              </div>
 
               <div className="rounded-[2rem] bg-ink text-white p-8 sm:p-10 relative overflow-hidden">
                 <h3 className="relative font-display text-2xl">Visítanos</h3>
+                <div className="relative mt-6 space-y-4">
+                  {SITE.locations.map((location) => (
+                    <article
+                      key={location.name}
+                      className="rounded-2xl border border-white/10 bg-white/5 p-4"
+                    >
+                      <h4 className="font-display text-lg">{location.name}</h4>
+                      <ul className="mt-3 space-y-3 text-sm">
+                        <InfoLine icon={MapPin}>{location.address}</InfoLine>
+                        <InfoLine icon={Phone}>{location.phone}</InfoLine>
+                      </ul>
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        <a
+                          href={wa(`Hola, quiero pasar por ${location.name}. ¿Cómo agendamos?`, location.whatsapp)}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-medium text-ink transition hover:bg-flash-100"
+                        >
+                          <MessageCircle className="h-4 w-4" />
+                          WhatsApp
+                        </a>
+                        <a
+                          href={location.mapsLink}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-xs font-medium text-white/85 transition hover:border-flash-500 hover:text-flash-500"
+                        >
+                          <MapPin className="h-4 w-4" />
+                          Cómo llegar
+                        </a>
+                      </div>
+                    </article>
+                  ))}
+                </div>
                 <ul className="relative mt-6 space-y-5 text-sm">
-                  <InfoLine icon={MapPin}>{SITE.address}</InfoLine>
-                  <InfoLine icon={Phone}>{SITE.phone}</InfoLine>
                   <InfoLine icon={Mail}>{SITE.email}</InfoLine>
                   <InfoLine icon={Clock}>{SITE.hours}</InfoLine>
                 </ul>

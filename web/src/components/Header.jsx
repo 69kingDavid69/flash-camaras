@@ -43,13 +43,8 @@ export default function Header() {
             <Logo size={44} />
             <span className="absolute inset-0 rounded-[14px] ring-1 ring-flash-600/30 pointer-events-none" />
           </span>
-          <span className="flex flex-col leading-none">
-            <span className="font-display text-xl tracking-tight">
-              <span className="font-bold text-flash-600">Flas</span><span className="text-flash-500">Cámaras</span>
-            </span>
-            <span className="text-[10px] uppercase tracking-[0.3em] text-ink-mute">
-              Servicio técnico · 41 años
-            </span>
+          <span className="gold-text font-display text-xl font-bold tracking-tight leading-none">
+            FlasCámaras
           </span>
         </Link>
 
