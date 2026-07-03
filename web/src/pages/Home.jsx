@@ -10,7 +10,9 @@ import { ArrowRight } from "lucide-react";
 import { PRODUCTS } from "../data/products";
 import { wa } from "../data/site";
 
-const FEATURED = PRODUCTS.slice(0, 4);
+const withPhoto = PRODUCTS.filter((p) => p.image);
+const withoutPhoto = PRODUCTS.filter((p) => !p.image);
+const FEATURED = [...withPhoto, ...withoutPhoto].slice(0, 4);
 const fmt = (n) =>
   n == null
     ? "Consultar precio"
