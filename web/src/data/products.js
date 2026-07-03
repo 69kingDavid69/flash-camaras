@@ -9,7 +9,20 @@ export const CATEGORIES = [
 ];
 
 export const PRODUCTS = [
-  // --- Equipos de segunda mano (prioridad) ---
+  // --- Equipos de segunda mano (productos reales) ---
+  {
+    id: 100,
+    name: "Sony A7 III (cuerpo, con caja)",
+    category: "usados",
+    price: 4600000,
+    brand: "Sony",
+    tag: "Segunda mano",
+    used: true,
+    condition: "Usada · con caja completa",
+    desc: "Full frame 24.2MP, video 4K y estabilización de imagen de 5 ejes. Incluye caja original.",
+    image: "/media/products/sony-a7iii.jpg",
+  },
+  // --- Equipos de segunda mano (ejemplos, prioridad) ---
   {
     id: 101,
     name: "Cámara Sony A6400 + lente 16-50mm (usada)",

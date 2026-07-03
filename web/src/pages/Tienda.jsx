@@ -94,12 +94,23 @@ export default function Tienda() {
               <Reveal key={p.id} delay={(i % 4) * 0.06}>
                 <article className="group flex h-full flex-col rounded-3xl border border-ink/5 bg-white p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-card">
                   <div className="relative aspect-square overflow-hidden rounded-2xl bg-bone-soft">
-                    <div className="absolute inset-0 bg-gradient-to-br from-flash-50 via-white to-bone-soft" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="font-display text-5xl text-flash-700/30">
-                        {p.brand.charAt(0)}
-                      </span>
-                    </div>
+                    {p.image ? (
+                      <img
+                        src={p.image}
+                        alt={p.name}
+                        loading="lazy"
+                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    ) : (
+                      <>
+                        <div className="absolute inset-0 bg-gradient-to-br from-flash-50 via-white to-bone-soft" />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <span className="font-display text-5xl text-flash-700/30">
+                            {p.brand.charAt(0)}
+                          </span>
+                        </div>
+                      </>
+                    )}
                     <span className="absolute top-3 left-3 rounded-full bg-ink/85 backdrop-blur px-3 py-1 text-[10px] uppercase tracking-wider text-white">
                       {p.tag}
                     </span>
