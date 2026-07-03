@@ -15,6 +15,11 @@ export default function Tienda() {
   const [cat, setCat] = useState("all");
   const [q, setQ] = useState("");
 
+  const visibleCategories = useMemo(
+    () => CATEGORIES.filter((c) => c.id === "all" || PRODUCTS.some((p) => p.category === c.id)),
+    []
+  );
+
   const filtered = useMemo(() => {
     return PRODUCTS.filter((p) => {
       const matchCat = cat === "all" || p.category === cat;
@@ -63,7 +68,7 @@ export default function Tienda() {
             </div>
             <div className="flex items-center gap-2 overflow-x-auto pb-1 lg:pb-0">
               <Filter className="h-4 w-4 shrink-0 text-ink-mute" />
-              {CATEGORIES.map((c) => (
+              {visibleCategories.map((c) => (
                 <button
                   key={c.id}
                   onClick={() => setCat(c.id)}
