@@ -12,7 +12,9 @@ import { wa } from "../data/site";
 
 const FEATURED = PRODUCTS.slice(0, 4);
 const fmt = (n) =>
-  new Intl.NumberFormat("es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 }).format(n);
+  n == null
+    ? "Consultar precio"
+    : new Intl.NumberFormat("es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 }).format(n);
 
 export default function Home() {
   return (

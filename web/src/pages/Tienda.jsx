@@ -7,7 +7,9 @@ import { PRODUCTS, CATEGORIES } from "../data/products";
 import { wa } from "../data/site";
 
 const fmt = (n) =>
-  new Intl.NumberFormat("es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 }).format(n);
+  n == null
+    ? "Consultar precio"
+    : new Intl.NumberFormat("es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 }).format(n);
 
 export default function Tienda() {
   const [cat, setCat] = useState("all");
@@ -140,7 +142,7 @@ export default function Tienda() {
                     </div>
                     <a
                       href={wa(
-                        `Hola FlasCámaras 👋, quiero *comprar* este producto:\n\n• ${p.name}\n• Precio: ${fmt(p.price)}${p.used ? `\n• Estado: ${p.condition}` : ""}\n\n¿Está disponible? ¿Me confirman el envío a todo el país?`
+                        `Hola FlasCámaras 👋, quiero *comprar* este producto:\n\n• ${p.name}${p.price != null ? `\n• Precio: ${fmt(p.price)}` : ""}${p.used ? `\n• Estado: ${p.condition}` : ""}\n\n¿Está disponible? ¿Me confirman el envío a todo el país?`
                       )}
                       target="_blank"
                       rel="noreferrer"

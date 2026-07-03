@@ -49,12 +49,24 @@ export default function Servicios() {
                 }`}
               >
                 <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-ink">
-                  <div className="absolute inset-0 bg-gradient-to-br from-flash-800 via-ink to-ink" />
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.08),_transparent_60%)]" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Icon className="h-32 w-32 text-white/40" strokeWidth={1} />
-                  </div>
-                  <span className="absolute top-6 left-6 font-display text-7xl text-white/15">
+                  {s.image ? (
+                    <img
+                      src={s.image}
+                      alt={s.title}
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                  ) : (
+                    <>
+                      <div className="absolute inset-0 bg-gradient-to-br from-flash-800 via-ink to-ink" />
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.08),_transparent_60%)]" />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <Icon className="h-32 w-32 text-white/40" strokeWidth={1} />
+                      </div>
+                    </>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
+                  <span className="absolute top-6 left-6 font-display text-7xl text-white/70 [text-shadow:0_2px_12px_rgba(0,0,0,0.6)]">
                     0{idx + 1}
                   </span>
                 </div>

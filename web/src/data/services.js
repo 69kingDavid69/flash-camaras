@@ -15,6 +15,7 @@ export const SERVICES = [
       "Diagnóstico completo gratis",
     ],
     price: "Desde $80.000 COP",
+    image: "/media/services/mantenimiento.jpg",
   },
   {
     id: "reparacion",
@@ -30,6 +31,7 @@ export const SERVICES = [
       "Garantía de 90 días",
     ],
     price: "Cotización en 24 h",
+    image: "/media/services/reparacion.jpg",
   },
   {
     id: "accesorios",
@@ -45,6 +47,7 @@ export const SERVICES = [
       "Correas, mochilas, soportes",
     ],
     price: "Catálogo en tienda",
+    image: "/media/services/accesorios.jpg",
   },
   {
     id: "asesoria",
@@ -60,6 +63,7 @@ export const SERVICES = [
       "Acompañamiento personalizado",
     ],
     price: "Sin costo · por WhatsApp",
+    image: "/media/services/asesoria.jpg",
   },
 ];
 
