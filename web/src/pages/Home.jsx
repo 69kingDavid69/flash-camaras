@@ -30,7 +30,7 @@ export default function Home() {
             eyebrow="Qué hacemos"
             title="Todo para cuidar"
             accent="tu equipo."
-            sub="Mantenimiento, reparación, accesorios y asesoría. Todo bajo el mismo techo, con técnicos expertos."
+            sub="Mantenimiento, reparación, compra, venta, accesorios y asesoría con técnicos."
           />
           <Link to="/servicios" className="btn-ghost self-start lg:self-end">
             Ver todos los servicios
