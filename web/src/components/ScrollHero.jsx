@@ -8,7 +8,7 @@ const SCENES = [
     title: "Conocemos",
     accent: "cada pieza",
     after: "de tu cámara.",
-    sub: "Mantenemos, diagnosticamos y reparamos lo que otros no se atreven a abrir.",
+    sub: "Mantenemos, diagnosticamos y reparamos.",
   },
   {
     eyebrow: "Mantenimiento de precisión",
