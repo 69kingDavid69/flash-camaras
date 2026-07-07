@@ -11,7 +11,7 @@ export const SERVICES = [
     bullets: [
       "Limpieza húmeda y seca de sensor",
       "Limpieza de óptica y filtros",
-      "Calibración de visor y diopter",
+      "Calibración de visor",
       "Diagnóstico completo gratis",
     ],
     price: "Desde $80.000 COP",
