@@ -9,7 +9,7 @@ export const SERVICES = [
     description:
       "Eliminamos polvo y residuos del sensor, calibramos el visor y limpiamos contactos eléctricos. Tu cámara funcionando como nueva.",
     bullets: [
-      "Limpieza húmeda y seca del sensor",
+      "Limpieza del sensor",
       "Limpieza de óptica y filtros",
       "Calibración de visor",
       "Diagnóstico completo $30.000",
