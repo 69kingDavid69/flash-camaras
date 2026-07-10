@@ -7,12 +7,12 @@ export const SERVICES = [
     title: "Mantenimiento preventivo",
     short: "Limpieza profunda de sensor, lentes y cuerpo.",
     description:
-      "Eliminamos polvo y residuos del sensor, calibramos visor y limpiamos contactos eléctricos. Tu cámara funcionando como nueva.",
+      "Eliminamos polvo y residuos del sensor, calibramos el visor y limpiamos contactos eléctricos. Tu cámara funcionando como nueva.",
     bullets: [
-      "Limpieza húmeda y seca de sensor",
+      "Limpieza húmeda y seca del sensor",
       "Limpieza de óptica y filtros",
       "Calibración de visor",
-      "Diagnóstico completo gratis",
+      "Diagnóstico completo $30.000",
     ],
     price: "Desde $80.000 COP",
     image: "/media/services/mantenimiento.jpg",
@@ -58,7 +58,7 @@ export const SERVICES = [
       "41 años nos dan criterio: te ayudamos a elegir el equipo correcto, decidir si vale la pena reparar y sacarle el máximo a tu cámara, lente o accesorio.",
     bullets: [
       "Qué cámara o lente comprar",
-      "Reparar o reemplazar: te decimos la verdad",
+      "Reparar o reemplazar piezas",
       "Compra y venta de equipos de segunda mano",
       "Acompañamiento personalizado",
     ],

@@ -30,7 +30,7 @@ export default function Servicios() {
             eyebrow="Servicios"
             title="Diagnosticamos, reparamos,"
             accent="cuidamos."
-            sub="Trabajamos con cuartos limpios y protocolos propios. Lo que hacemos en una semana, otros tardan un mes."
+            sub="Servicio técnico para cada equipo fotográfico."
           />
         </div>
       </section>

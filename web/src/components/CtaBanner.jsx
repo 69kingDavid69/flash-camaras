@@ -15,7 +15,7 @@ export default function CtaBanner() {
           <div>
             <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-flash-300">
               <span className="h-px w-8 bg-flash-500" />
-              Diagnóstico gratis
+              Diagnóstico $30.000
             </span>
             <h2 className="mt-5 font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.05]">
               ¿Tu cámara no está dando lo mejor?{" "}
