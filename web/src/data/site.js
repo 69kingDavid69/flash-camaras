@@ -20,8 +20,8 @@ export const SITE = {
     {
       name: "Sede Monterey",
       address: "Cra 48 #10-45, Centro Comercial Monterey, local 140 (división 6)",
-      phone: "301 207 811",
-      whatsapp: "57301207811",
+      phone: "301 207 8111",
+      whatsapp: "573012078111",
       mapsLink: "https://www.google.com/maps/search/?api=1&query=Cra%2048%20%2310-45%20Centro%20Comercial%20Monterey%20local%20140%20Medell%C3%ADn",
       mapsEmbed: "https://maps.google.com/maps?q=Cra%2048%20%2310-45%20Centro%20Comercial%20Monterey%20local%20140%20Medell%C3%ADn&hl=es&z=17&output=embed",
     },
