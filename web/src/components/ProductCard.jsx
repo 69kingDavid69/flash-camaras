@@ -1,5 +1,6 @@
-import { MessageCircle, Camera } from "lucide-react";
-import { wa } from "../data/site";
+import { useEffect, useRef, useState } from "react";
+import { MessageCircle, Camera, MapPin } from "lucide-react";
+import { SITE, wa } from "../data/site";
 
 const fmt = (n) =>
   n == null
@@ -7,8 +8,31 @@ const fmt = (n) =>
     : new Intl.NumberFormat("es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 }).format(n);
 
 export default function ProductCard({ product: p, aspect = "aspect-square", compact = false }) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onOutside = (e) => {
+      if (rootRef.current && !rootRef.current.contains(e.target)) setOpen(false);
+    };
+    const onEscape = (e) => e.key === "Escape" && setOpen(false);
+    document.addEventListener("mousedown", onOutside);
+    document.addEventListener("keydown", onEscape);
+    return () => {
+      document.removeEventListener("mousedown", onOutside);
+      document.removeEventListener("keydown", onEscape);
+    };
+  }, [open]);
+
+  const messageFor = () =>
+    `Hola FlasCámaras 👋, quiero *comprar* este producto:\n\n• ${p.name}${p.price != null ? `\n• Precio: ${fmt(p.price)}` : ""}${p.used && p.condition ? `\n• Estado: ${p.condition}` : ""}\n\n¿Está disponible? ¿Me confirman el envío a todo el país?`;
+
   return (
-    <article className="group relative flex h-full flex-col rounded-3xl border border-ink/5 bg-white p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-card">
+    <article
+      ref={rootRef}
+      className="group relative flex h-full flex-col rounded-3xl border border-ink/5 bg-white p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-card"
+    >
       <div className={`relative ${aspect} overflow-hidden rounded-2xl bg-bone-soft`}>
         {p.image_url ? (
           <img
@@ -62,17 +86,42 @@ export default function ProductCard({ product: p, aspect = "aspect-square", comp
             Ya vendido
           </span>
         ) : (
-          <a
-            href={wa(
-              `Hola FlasCámaras 👋, quiero *comprar* este producto:\n\n• ${p.name}${p.price != null ? `\n• Precio: ${fmt(p.price)}` : ""}${p.used && p.condition ? `\n• Estado: ${p.condition}` : ""}\n\n¿Está disponible? ¿Me confirman el envío a todo el país?`
+          <div className="relative">
+            {open && (
+              <div className="animate-fade-up absolute bottom-full left-0 z-20 mb-2 w-full min-w-[240px] rounded-2xl border border-ink/10 bg-white p-3 shadow-card">
+                <p className="px-2 pb-2 text-[11px] font-medium uppercase tracking-[0.15em] text-ink-mute">
+                  ¿Con qué sede querés hablar?
+                </p>
+                <div className="flex flex-col gap-1.5">
+                  {SITE.locations.map((location) => (
+                    <a
+                      key={location.name}
+                      href={wa(messageFor(), location.whatsapp)}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={() => setOpen(false)}
+                      className="flex items-start gap-2.5 rounded-xl px-3 py-2.5 text-sm transition hover:bg-bone-soft"
+                    >
+                      <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-flash-600" />
+                      <span>
+                        <span className="block font-medium text-ink">{location.name}</span>
+                        <span className="block text-xs text-ink-mute">{location.address}</span>
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </div>
             )}
-            target="_blank"
-            rel="noreferrer"
-            className="gold-surface mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-semibold transition"
-          >
-            <MessageCircle className="h-4 w-4" />
-            Comprar por WhatsApp
-          </a>
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-expanded={open}
+              className="gold-surface mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-semibold transition"
+            >
+              <MessageCircle className="h-4 w-4" />
+              Comprar por WhatsApp
+            </button>
+          </div>
         )}
       </div>
     </article>
