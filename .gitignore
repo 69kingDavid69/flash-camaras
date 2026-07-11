@@ -12,6 +12,7 @@ build
 .env
 .env.local
 .env.*.local
+supabase-fix-*.sql
 
 # logs
 npm-debug.log*

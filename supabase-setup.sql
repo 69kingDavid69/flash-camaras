@@ -1,5 +1,6 @@
 -- Ejecutar UNA sola vez en: Supabase Dashboard → SQL Editor → New query → pegar todo → Run
--- Proyecto: dtppmqwdkvvmtttzhybv
+-- Antes de correrlo: reemplazá ADMIN_EMAIL_AQUI (7 ocurrencias) por el email
+-- real del usuario admin. No subas la versión con el email real a git.
 
 create table if not exists public.products (
   id bigint generated always as identity primary key,
@@ -29,18 +30,18 @@ create policy "public_read" on public.products
 drop policy if exists "admin_insert" on public.products;
 create policy "admin_insert" on public.products
   for insert to authenticated
-  with check ((auth.jwt()->>'email') = 'davidbb0003@gmail.com');
+  with check (lower(trim(auth.jwt()->>'email')) = 'ADMIN_EMAIL_AQUI');
 
 drop policy if exists "admin_update" on public.products;
 create policy "admin_update" on public.products
   for update to authenticated
-  using ((auth.jwt()->>'email') = 'davidbb0003@gmail.com')
-  with check ((auth.jwt()->>'email') = 'davidbb0003@gmail.com');
+  using (lower(trim(auth.jwt()->>'email')) = 'ADMIN_EMAIL_AQUI')
+  with check (lower(trim(auth.jwt()->>'email')) = 'ADMIN_EMAIL_AQUI');
 
 drop policy if exists "admin_delete" on public.products;
 create policy "admin_delete" on public.products
   for delete to authenticated
-  using ((auth.jwt()->>'email') = 'davidbb0003@gmail.com');
+  using (lower(trim(auth.jwt()->>'email')) = 'ADMIN_EMAIL_AQUI');
 
 -- Tope duro de 500 productos: imposible inflar la base de datos por error o abuso
 create or replace function public.enforce_products_limit()
@@ -91,17 +92,17 @@ create policy "public_read_images" on storage.objects
 drop policy if exists "admin_upload_images" on storage.objects;
 create policy "admin_upload_images" on storage.objects
   for insert to authenticated
-  with check (bucket_id = 'product-images' and (auth.jwt()->>'email') = 'davidbb0003@gmail.com');
+  with check (bucket_id = 'product-images' and lower(trim(auth.jwt()->>'email')) = 'ADMIN_EMAIL_AQUI');
 
 drop policy if exists "admin_update_images" on storage.objects;
 create policy "admin_update_images" on storage.objects
   for update to authenticated
-  using (bucket_id = 'product-images' and (auth.jwt()->>'email') = 'davidbb0003@gmail.com');
+  using (bucket_id = 'product-images' and lower(trim(auth.jwt()->>'email')) = 'ADMIN_EMAIL_AQUI');
 
 drop policy if exists "admin_delete_images" on storage.objects;
 create policy "admin_delete_images" on storage.objects
   for delete to authenticated
-  using (bucket_id = 'product-images' and (auth.jwt()->>'email') = 'davidbb0003@gmail.com');
+  using (bucket_id = 'product-images' and lower(trim(auth.jwt()->>'email')) = 'ADMIN_EMAIL_AQUI');
 
 -- Tope duro de 1000 fotos (1000 x 300KB = 300MB máx, muy por debajo del límite de 1GB del plan free)
 create or replace function public.enforce_images_limit()
