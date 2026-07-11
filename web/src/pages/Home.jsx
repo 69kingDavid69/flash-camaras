@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import ScrollHero from "../components/ScrollHero";
 import SectionTitle from "../components/SectionTitle";
 import ServicesGrid from "../components/ServicesGrid";
@@ -5,20 +6,29 @@ import Pillars from "../components/Pillars";
 import Testimonials from "../components/Testimonials";
 import CtaBanner from "../components/CtaBanner";
 import Reveal from "../components/Reveal";
+import ProductCard from "../components/ProductCard";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { PRODUCTS } from "../data/products";
-import { wa } from "../data/site";
-
-const withPhoto = PRODUCTS.filter((p) => p.image);
-const withoutPhoto = PRODUCTS.filter((p) => !p.image);
-const FEATURED = [...withPhoto, ...withoutPhoto].slice(0, 4);
-const fmt = (n) =>
-  n == null
-    ? "Consultar precio"
-    : new Intl.NumberFormat("es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 }).format(n);
+import { fetchProducts } from "../lib/products";
 
 export default function Home() {
+  const [featured, setFeatured] = useState(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetchProducts()
+      .then((data) => {
+        if (cancelled) return;
+        const withPhoto = data.filter((p) => p.image_url && !p.sold);
+        const withoutPhoto = data.filter((p) => !(p.image_url && !p.sold));
+        setFeatured([...withPhoto, ...withoutPhoto].slice(0, 4));
+      })
+      .catch(() => !cancelled && setFeatured([]));
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   return (
     <>
       <ScrollHero />
@@ -60,53 +70,15 @@ export default function Home() {
           </div>
 
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {FEATURED.map((p, i) => (
-              <Reveal key={p.id} delay={i * 0.08}>
-                <article className="group flex h-full flex-col rounded-3xl border border-ink/5 bg-white p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-card">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-bone-soft">
-                    {p.image ? (
-                      <img
-                        src={p.image}
-                        alt={p.name}
-                        loading="lazy"
-                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                    ) : (
-                      <>
-                        <div className="absolute inset-0 bg-gradient-to-br from-flash-50 via-white to-bone-soft" />
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="font-display text-4xl text-flash-700/40">
-                            {p.brand.charAt(0)}
-                          </span>
-                        </div>
-                      </>
-                    )}
-                    <span className="absolute top-3 left-3 rounded-full bg-ink/85 backdrop-blur px-3 py-1 text-[10px] uppercase tracking-wider text-white">
-                      {p.tag}
-                    </span>
-                  </div>
-                  <div className="mt-5 flex-1">
-                    <span className="text-[10px] uppercase tracking-[0.25em] text-ink-mute">
-                      {p.brand}
-                    </span>
-                    <h3 className="mt-2 font-display text-lg leading-tight text-ink line-clamp-2">
-                      {p.name}
-                    </h3>
-                  </div>
-                  <div className="mt-5 flex items-baseline justify-between border-t border-ink/5 pt-4">
-                    <span className="text-lg font-medium text-ink">{fmt(p.price)}</span>
-                    <a
-                      href={wa(`Hola FlasCámaras 👋, me interesa: *${p.name}*. ¿Disponibilidad y envío a todo el país?`)}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-xs font-medium text-flash-700 hover:text-flash-800"
-                    >
-                      Consultar →
-                    </a>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
+            {(featured ?? Array.from({ length: 4 })).map((p, i) =>
+              p ? (
+                <Reveal key={p.id} delay={i * 0.08}>
+                  <ProductCard product={p} aspect="aspect-[4/3]" compact />
+                </Reveal>
+              ) : (
+                <div key={i} className="h-[340px] animate-pulse rounded-3xl bg-white/60" />
+              )
+            )}
           </div>
         </div>
       </section>

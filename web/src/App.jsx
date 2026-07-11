@@ -1,3 +1,4 @@
+import { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
@@ -5,10 +6,20 @@ import Servicios from "./pages/Servicios";
 import Tienda from "./pages/Tienda";
 import Contacto from "./pages/Contacto";
 
+const Admin = lazy(() => import("./pages/Admin"));
+
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route
+          path="admin"
+          element={
+            <Suspense fallback={null}>
+              <Admin />
+            </Suspense>
+          }
+        />
         <Route element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="servicios" element={<Servicios />} />

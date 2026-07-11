@@ -112,6 +112,10 @@
   .glass-dark {
     @apply bg-ink/60 backdrop-blur-xl border border-white/10;
   }
+
+  .input {
+    @apply w-full rounded-xl border border-ink/10 bg-bone-soft px-4 py-3 text-sm focus:border-flash-600 focus:outline-none focus:ring-2 focus:ring-flash-100;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
