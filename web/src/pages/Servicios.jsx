@@ -66,9 +66,6 @@ export default function Servicios() {
                     </>
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
-                  <span className="absolute top-6 left-6 font-display text-7xl text-white/70 [text-shadow:0_2px_12px_rgba(0,0,0,0.6)]">
-                    0{idx + 1}
-                  </span>
                 </div>
 
                 <div>
