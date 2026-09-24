@@ -10,6 +10,7 @@ export const SITE = {
   hours: "Lun – Sáb · 9:00 a.m. – 6:00 p.m.",
   locations: [
     {
+      code: "C",
       name: "Sede centro",
       address: "Calle 53 #49-48, Medellín, Antioquia",
       phone: "+57 304 215 1828",
@@ -18,6 +19,7 @@ export const SITE = {
       mapsEmbed: "https://maps.google.com/maps?q=6.2518969,-75.5657047&hl=es&z=17&output=embed",
     },
     {
+      code: "M",
       name: "Sede Monterey",
       address: "Cra 48 #10-45, Centro Comercial Monterey, local 140 (división 6)",
       phone: "301 207 8111",
